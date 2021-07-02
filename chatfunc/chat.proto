@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "./;chat";
+
+package chat;
+
+//define a service that can be called by any grpc written in any language
+service ChatService{
+	//sends a response
+	rpc SayHello(Message) returns (MessageReply) {}
+}
+
+//The request messsage containing the message
+message Message{
+	string Body = 1;
+}
+
+//The response message containing the reply
+message MessageReply{
+	string Body = 1;
+}
